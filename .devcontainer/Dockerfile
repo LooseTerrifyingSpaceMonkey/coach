@@ -11,4 +11,4 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && apt-get -y instal
 
 
 # Install requirements
-RUN pip3 install --user -r requirements.txt
+# RUN pip3 install --user -r requirements.txt
