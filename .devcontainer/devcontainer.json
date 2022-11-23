@@ -33,6 +33,6 @@
 	"extensions": [
 		"ms-python.python"
 	],
-  "postCreateCommand": "pip3 install --user -r requirements.txt && pip3 install .",
+  "postCreateCommand": "python3 -m pip install --upgrade pip && pip3 install --user -r requirements.txt && pip3 install .",
   "remoteUser":"vscode"
 }
