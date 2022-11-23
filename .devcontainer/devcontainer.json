@@ -1,0 +1,15 @@
+{
+  "name": "Coach Reinforcement Learning",
+  "build": {
+      "dockerfile": "Dockerfile",
+        "context": "..",
+          "args": {
+            "VARIANT": "3.9"      
+          }
+  },
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+  },
+    "postCreateCommand": "pip3 install --user -r requirements.txt",
+    "remoteUser":"vscode"
+}
