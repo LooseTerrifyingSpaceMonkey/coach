@@ -2,7 +2,6 @@
   "name": "Coach Reinforcement Learning",
   "build": {
       "dockerfile": "Dockerfile",
-        "context": "..",
           "args": {
             "VARIANT": "3.9"      
           }
