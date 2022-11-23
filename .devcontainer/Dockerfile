@@ -7,7 +7,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/python:${VARIANT}
 # RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt && rm -rf /tmp/pip-tmp
 
 # [Optional] Uncomment this section to install additional OS packages.
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && apt-get -y install --no-install-recommends python3-pip cmake zlib1g-dev python3-tk python3-opencv libboost-all-dev libblas-dev liblapack-dev libatlas-base-dev gfortran dpkg-dev build-essential python3.9-dev libjpeg-dev libtiff-dev libsdl1.2-dev libnotify-dev freeglut3 freeglut3-dev libsm-dev libgtk2.0-dev libgtk-3-dev libwebkit2gtk-4.0-37 libwebkit2gtk-4.0-37-dev libgstreamer-plugins-base1.0-dev ffmpeg libsdl2-dev swig
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && apt-get -y install --no-install-recommends python3-pip cmake zlib1g-dev python3-tk python3-opencv libboost-all-dev libblas-dev liblapack-dev libatlas-base-dev gfortran dpkg-dev build-essential python3.9-dev libjpeg-dev libtiff-dev libsdl1.2-dev libnotify-dev freeglut3 freeglut3-dev libsm-dev libgtk2.0-dev libgtk-3-dev libwebkit2gtk-4.0-37 libwebkit2gtk-4.0-dev libgstreamer-plugins-base1.0-dev ffmpeg libsdl2-dev swig
 
 # Switch to the coach directory
 RUN cd coach
