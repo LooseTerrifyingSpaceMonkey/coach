@@ -26,6 +26,6 @@
 	"extensions": [
 		"ms-python.python"
 	],
-  // "postCreateCommand": "pip3 install --user coach .",
+  "postCreateCommand": "pip3 install .",
   "remoteUser":"vscode"
 }
