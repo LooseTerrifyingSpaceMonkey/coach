@@ -10,7 +10,7 @@ RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requ
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && apt-get -y install --no-install-recommends python3-pip cmake zlib1g-dev \
   python3-tk python3-opencv libboost-all-dev libblas-dev liblapack-dev libatlas-base-dev gfortran dpkg-dev \
   build-essential python3.9-dev libjpeg-dev libtiff-dev libsdl1.2-dev libnotify-dev freeglut3 freeglut3-dev \
-  libsm-dev libgtk2.0-dev libgtk-3-dev libwebkit2gtk-4.0-37 libwebkit2gtk-4.0-dev libgstreamer-plugins-base1.0-dev ffmpeg libsdl2-dev swig
+  libsm-dev libgtk2.0-dev libgtk-3-dev libwebkit2gtk-4.0-37 libwebkit2gtk-4.0-dev libgstreamer-plugins-base1.0-dev ffmpeg libsdl2-dev swig \
   linux-headers-$(uname -r) nvidia-cuda-dev nvidia-cuda-toolkit nvidia-driver
 
 RUN 'export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}' > $HOME/.bashrc
