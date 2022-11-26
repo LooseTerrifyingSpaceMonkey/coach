@@ -33,31 +33,33 @@ RUN apt-get install ffmpeg libsdl2-dev swig cmake -y --no-install-recommends
 # Check if we need to download the code
 ARG NOT_CODESPACE=1
 RUN if [ $NOT_CODESPACE -eq 1 ] ; \
-      then git clone https://github.com/LooseTerrifyingSpaceMonkey/coach.git \
+      then git clone https://github.com/LooseTerrifyingSpaceMonkey/coach.git  \
       && cd coach && git checkout initial-codespaces-work \
-      && curl "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" -o Miniconda3-latest-Linux-x86_64.sh \
-      && bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda; \
-    else echo Not Codespace is ${NOT_CODESPACE} ; \
+      && curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh" \
+      && bash Mambaforge-$(uname)-$(uname -m).sh -b -p $HOME/miniforge \
+      && MAMBA_HOME=$HOME/miniforge \
+    else echo Not Codespace is ${NOT_CODESPACE} && MAMBA_HOME = $HOME/miniforge ; \
     fi
 
 # Create a conda environment
 # First add conda forge and then update the packages
-RUN $HOME/miniconda/bin/conda config --append channels conda-forge \
-    && $HOME/miniconda/bin/conda update --all
+RUN $MAMBA_HOME/bin/conda update --all
 
 # Create a conda environment
 ARG VARIANT=3
-RUN $HOME/miniconda/bin/conda create --name tf python=${VARIANT} \
-    && $HOME/miniconda/bin/conda init bash --system \
-    && echo "$HOME/miniconda/bin/conda activate tf" > ~/.bashrc
+RUN $MAMBA_HOME/bin/conda create --name tf python=${VARIANT} \
+    && $MAMBA_HOME/bin/conda init bash --system \
+    && echo "$MAMBA_HOME/bin/conda activate tf" > ~/.bashrc
     #    && bash -c "source $HOME/.bashrc" \
 #    && $HOME/miniconda/bin/conda activate tf
 
-RUN  $HOME/miniconda/bin/conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0 \
+RUN if [ $NOT_CODESPACE -eq 1 ] ; \
+   then $MAMBA_HOME/bin/conda install cudatoolkit=11.2 cudnn=8.1.0 \
     && export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/ \
     && mkdir -p $CONDA_PREFIX/etc/conda/activate.d \
-    && echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/' > $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-
+    && echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/' > $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh \
+  else echo Not Codespace 2 is ${NOT_CODESPACE} ; \
+  fi
 # RUN git clone https://github.com/LooseTerrifyingSpaceMonkey/coach.git && cd coach && git checkout initial-codespaces-work
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
