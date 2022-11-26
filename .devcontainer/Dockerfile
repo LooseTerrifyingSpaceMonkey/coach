@@ -43,7 +43,7 @@ RUN if [ $NOT_CODESPACE -eq 1 ] ; \
 
 # Create a conda environment
 # First add conda forge and then update the packages
-RUN $MAMBA_HOME/bin/conda update --all
+RUN conda update --all
 
 # Create a conda environment
 ARG VARIANT=3
