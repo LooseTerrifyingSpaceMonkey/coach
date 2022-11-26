@@ -66,11 +66,11 @@ using_GPU = out != ''
 
 if not using_GPU:
     if not slim_package:
-        install_requires.append('tensorflow>=2.11.0')
+        install_requires.append('tensorflow>=2.10.0')
     extras['mxnet'] = ['mxnet-mkl>=1.3.0']
 else:
     if not slim_package:
-        install_requires.append('tensorflow-gpu>=2.11.0')
+        install_requires.append('tensorflow-gpu>=2.10.0')
     extras['mxnet'] = ['mxnet-cu90mkl>=1.3.0']
 
 all_deps = []
