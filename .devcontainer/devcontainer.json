@@ -1,41 +1,32 @@
 {
   "name": "Coach Reinforcement Learning",
-  //"build": {
-  //    "dockerfile": "Dockerfile",
-  //    "context": "..",
-  //        "args": {
-  //          "VARIANT": "3.9",
-//			"NOT_CODESPACE": "0"
-//          }
-//  },
- "features": {
-	"ghcr.io/devcontainers/features/docker-from-docker:1": {},
-	"ghcr.io/devcontainers/features/docker-in-docker:1": {},
-	// "ghcr.io/rocker-org/devcontainer-features/miniforge:0": {},
-        "ghcr.io/devcontainers-contrib/features/pipenv:1": {},
-        "ghcr.io/devcontainers/features/nvidia-cuda:1": {},
-        "ghcr.io/guiyomh/features/vim:0": {}
-	},
-  // Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"python.pythonPath": "/usr/local/bin/python",
-		"python.linting.enabled": true,
-		"python.linting.pylintEnabled": true,
-		"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-		"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-		"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-		"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
-		"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
-		"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
-		"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
-		"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-		"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
-	},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-python.python"
-	],
-  // "postCreateCommand": "pip3 install --user -r requirements.txt && pip3 install .",
-  "remoteUser":"root"
+  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.9",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {},
+    "ghcr.io/devcontainers/features/docker-from-docker:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {},
+    "ghcr.io/devcontainers-contrib/features/pipenv:1": {},
+    "ghcr.io/devcontainers/features/nvidia-cuda:1": {},
+    "ghcr.io/devcontainers-contrib/features/pylint:1": {},
+    "ghcr.io/guiyomh/features/vim:0": {}
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "python.pythonPath": "/usr/local/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+    "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+    "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+    "python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
+    "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+    "python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
+    "python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
+    "python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+    "python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
+  },
+  "extensions": [
+    "ms-python.python"
+  ],
+  "remoteUser": "vscode"
 }
