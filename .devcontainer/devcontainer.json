@@ -1,17 +1,17 @@
 {
   "name": "Coach Reinforcement Learning",
-  "build": {
-      "dockerfile": "Dockerfile",
-      "context": "..",
-          "args": {
-            "VARIANT": "3.9",
-			"NOT_CODESPACE": "0"
-          }
-  },
+  //"build": {
+  //    "dockerfile": "Dockerfile",
+  //    "context": "..",
+  //        "args": {
+  //          "VARIANT": "3.9",
+//			"NOT_CODESPACE": "0"
+//          }
+//  },
  "features": {
 	"ghcr.io/devcontainers/features/docker-from-docker:1": {},
 	"ghcr.io/devcontainers/features/docker-in-docker:1": {},
-	"ghcr.io/rocker-org/devcontainer-features/miniforge:0": {},
+	// "ghcr.io/rocker-org/devcontainer-features/miniforge:0": {},
         "ghcr.io/devcontainers-contrib/features/pipenv:1": {},
         "ghcr.io/devcontainers/features/nvidia-cuda:1": {},
         "ghcr.io/guiyomh/features/vim:0": {}

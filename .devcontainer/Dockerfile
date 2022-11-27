@@ -36,9 +36,9 @@ RUN if [ $NOT_CODESPACE -eq 1 ] ; \
       then git clone https://github.com/LooseTerrifyingSpaceMonkey/coach.git  \
       && cd coach && git checkout initial-codespaces-work \
       && curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh" \
-      && bash Mambaforge-$(uname)-$(uname -m).sh -b -p $HOME/miniforge \
-      && MAMBA_HOME=$HOME/miniforge \
-    else echo Not Codespace is ${NOT_CODESPACE} && MAMBA_HOME = $HOME/miniforge ; \
+      && bash Mambaforge-$(uname)-$(uname -m).sh -b \
+      && MAMBA_HOME=~/miniforge3 \
+    else echo Not Codespace is ${NOT_CODESPACE} && MAMBA_HOME = ~/miniforge3 ; \
     fi
 
 # Create a conda environment
